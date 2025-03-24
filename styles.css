@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: transparent;
+  color: #fff;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 340px;
+  height: 560px;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.title-bar {
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  background-color: #111;
+  color: #ff0000;
+  -webkit-app-region: drag;
+}
+
+.title-text {
+  flex-grow: 1;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.window-controls {
+  display: flex;
+  -webkit-app-region: no-drag;
+}
+
+.window-controls button {
+  background: none;
+  border: none;
+  color: #888;
+  margin-left: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.window-controls button:hover {
+  opacity: 1;
+  color: #fff;
+}
+
+#exit-button:hover {
+  color: #ff0000;
+}
+
+.album-art {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #111;
+  margin: 15px;
+  border-radius: 15px;
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(50, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  border: 1px solid #222;
+}
+
+.current-track-info {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.album-title {
+  font-size: 28px;
+  color: #ff0000;
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.track-artist {
+  font-size: 16px;
+  color: #ccc;
+}
+
+.album-details {
+  font-size: 11px;
+  text-align: center;
+  color: #888;
+  max-width: 80%;
+}
+
+.player-container {
+  background-color: #111;
+  border-radius: 20px 20px 0 0;
+  padding: 15px 15px 5px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background-color: #333;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+#progress {
+  height: 100%;
+  width: 0;
+  background-color: #ff0000;
+  border-radius: 5px;
+  transition: width 0.1s;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.player-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.control-buttons button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #ccc;
+  cursor: pointer;
+  margin: 0 15px;
+  -webkit-app-region: no-drag;
+  transition: color 0.2s;
+}
+
+.control-buttons button:hover {
+  color: #fff;
+}
+
+#play-button {
+  background-color: #ff0000;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+#play-button:hover {
+  background-color: #cc0000;
+}
+
+.menu-button {
+  background-color: #ff0000;
+  padding: 5px 15px;
+  border-radius: 15px;
+  color: white;
+  font-size: 14px;
+  margin-bottom: 10px;
+  -webkit-app-region: no-drag;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.menu-button:hover {
+  background-color: #cc0000;
+}
+
+.daggers-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.dagger-filled {
+  color: #ff0000;
+  font-size: 16px;
+}
+
+.dagger-empty {
+  color: #333;
+  font-size: 16px;
+}
+
+/* Menu overlay */
+#menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.menu-container {
+  width: 300px;
+  max-height: 500px;
+  background-color: #111;
+  border-radius: 15px;
+  padding: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #222;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #ff0000;
+}
+
+.menu-header button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #888;
+}
+
+.menu-header button:hover {
+  color: #ff0000;
+}
+
+.menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.menu-options button {
+  background-color: #222;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #ccc;
+}
+
+.menu-options button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.playlist-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.playlist-container h4 {
+  margin-bottom: 10px;
+  color: #ff0000;
+}
+
+#playlist {
+  list-style: none;
+}
+
+#playlist li {
+  padding: 8px 5px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ccc;
+}
+
+#playlist li:hover {
+  background-color: #222;
+  color: #fff;
+}
+
+#playlist li.active {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: #ff0000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+}
+
+#volume-icon {
+  color: #ccc;
+  cursor: pointer;
+}
+
+#volume-icon:hover {
+  color: #ff0000;
+}
+
+.volume-slider-container {
+  width: 100px;
+  display: flex;
+  align-items: center;
+}
+
+#volume-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #333;
+  border-radius: 5px;
+  outline: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff0000;
+  cursor: pointer;
+}

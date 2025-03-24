@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>museek</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <div class="title-bar">
+      <div class="title-text">museek</div>
+      <div class="window-controls">
+        <button id="minimize-button" title="Minimize"><i class="fas fa-minus"></i></button>
+        <button id="exit-button" title="Close"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    
+    <div class="album-art">
+      <div class="current-track-info">
+        <div class="album-title">museek</div>
+        <div class="track-artist">Select a folder to begin</div>
+      </div>
+      <div class="album-details">
+        No music loaded. Use the menu to load a folder with your music files.
+      </div>
+    </div>
+    
+    <div class="player-container">
+      <div class="progress-bar">
+        <div id="progress"></div>
+      </div>
+      <div class="time-display">
+        <span id="current-time">0:00</span>
+        <span id="total-time">0:00</span>
+      </div>
+      
+      <div class="player-controls">
+        <div class="control-buttons">
+          <button id="prev-button" title="Previous"><i class="fas fa-step-backward"></i></button>
+          <button id="play-button" title="Play/Pause"><i class="fas fa-play"></i></button>
+          <button id="next-button" title="Next"><i class="fas fa-step-forward"></i></button>
+        </div>
+        <div class="menu-button" title="Open Menu">
+          <span>menu</span>
+        </div>
+        <div class="volume-control">
+            <i class="fas fa-volume-up" id="volume-icon"></i>
+            <div class="volume-slider-container">
+              <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.7">
+            </div>
+          </div>
+        <div class="daggers-container">
+           <i class="fas fa-khanda dagger-filled"></i>
+           <i class="fas fa-khanda dagger-filled"></i>
+           <i class="fas fa-khanda dagger-filled"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu overlay -->
+  <div id="menu-overlay" class="hidden">
+    <div class="menu-container">
+      <div class="menu-header">
+        <h3>Menu</h3>
+        <button id="close-menu"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="menu-options">
+        <button id="load-folder-btn"><i class="fas fa-folder-open"></i> Load Music Folder</button>
+        <button id="toggle-shuffle-btn"><i class="fas fa-random"></i> Shuffle: Off</button>
+        <button id="toggle-repeat-btn"><i class="fas fa-redo"></i> Repeat: Off</button>
+      </div>
+      <div class="playlist-container">
+        <h4>Playlist</h4>
+        <ul id="playlist"></ul>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio-player"></audio>
+  <script src="renderer.js"></script>
+</body>
+</html>
